@@ -19,25 +19,30 @@ states <- read_csv("data/states.csv")
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
-Add code chunks as needed.
-Don't forget to label your code chunk.
-Do not use spaces in code chunk labels.
+```{r-view-dennys}
+view(dennys)
+```
+
+There are 6 columns and 1643 rows. Each row represents a Denny's location. The variables are address, city, state, zip, longitude, and latitude.
 
 ### Exercise 2
 
-Remove this text, and add your answer for Exercise 2 here.
-Add code chunks as needed.
-Don't forget to label your code chunk.
-Do not use spaces in code chunk labels.
+
+```{r-view-laquinta}
+view(laquinta)
+```
+
+There are 6 columns and 909 rows. Each row represents a La Quinta location. The variables are address, city, state, zip, longitude, and latitude.
 
 ### Exercise 3
 
-...
+La Quinta appears to have locations in Canada, Mexico, China, New Zealand, the UAE, Turkey, Chile, and Colombia.
+
+The Denny's store locator may not be working (not seeing any dots on the map appear). When I search for locations in Mexico and Canada on their site, there are no results. Perhaps they only have location in the US?
 
 ### Exercise 4
 
-...
+Perhpas one way to filter out data that is not from the United States is exclude any data that does not a the initials of a state (and DC) located in the United States. I'm not familiar with zip code conventions, but perhaps there are specific conventions for zip code in the US that would differentiate them from zip codes from other countries. I'm also not super familiar with longitude and latitude, but perhaps there would be a range of values that would cover the US, and you could exlude any locations with longitude or latitudes outside of said range.
 
 ### Exercise 5
 
