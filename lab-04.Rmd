@@ -1,11 +1,12 @@
 ---
 title: "Lab 04 - La Quinta is Spanish for next to Denny's, Pt. 1"
-author: "Insert your name here"
-date: "Insert date here"
+author: "Lindsay Stall"
+date: "01/24/2023"
 output: github_document
 ---
 
 ### Load packages and data
+
 
 ```{r load-packages, message = FALSE}
 library(tidyverse) 
