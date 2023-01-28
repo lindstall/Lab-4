@@ -1,7 +1,7 @@
 ---
 title: "Lab 04 - La Quinta is Spanish for next to Denny's, Pt. 1"
-author: "Insert your name here"
-date: "Insert date here"
+author: "Lindsay Stall"
+date: "1/25/2023"
 output: github_document
 ---
 
@@ -18,34 +18,158 @@ states <- read_csv("data/states.csv")
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
-Add code chunks as needed.
-Don't forget to label your code chunk.
-Do not use spaces in code chunk labels.
+```{r}
+nrow(dennys)
+ncol(dennys)
+```
+There are 6 columns and 1643 rows. Each row represents a Denny's location. The variables are address, city, state, zip, longitude, and latitude.
 
 ### Exercise 2
+```{r}
+view(laquinta)
+```
 
-Remove this text, and add your answer for Exercise 2 here.
-Add code chunks as needed.
-Don't forget to label your code chunk.
-Do not use spaces in code chunk labels.
+There are 6 columns and 909 rows. Each row represents a La Quinta location. The variables are address, city, state, zip, longitude, and latitude.
 
 ### Exercise 3
 
-...
+La Quinta appears to have locations in Canada, Mexico, China, New Zealand, the UAE, Turkey, Chile, and Colombia.
+
+The Denny's store locator may not be working (not seeing any dots on the map appear). When I search for locations in Mexico and Canada on their site, there are no results. Perhaps they only have location in the US?
 
 ### Exercise 4
 
-...
+Perhaps one way to filter out data that is not from the United States is exclude any data that does not a the initials of a state (and DC) located in the United States. I'm not familiar with zip code conventions, but perhaps there are specific conventions for zip code in the US that would differentiate them from zip codes from other countries. I'm also not super familiar with longitude and latitude, but perhaps there would be a range of values that would cover the US, and you could exlude any locations with longitude or latitudes outside of said range.
 
 ### Exercise 5
 
-...
+```{r}
+dennys %>%
+  filter(!(state %in% states$abbreviation))
+```
+
+There are no states are outside the US for Dennys
 
 ### Exercise 6
 
-...
+```{r}
+dennys %>%
+  mutate(country = "United States")
+```
 
- 
-Add exercise headings as needed.
+
+### Exercise 7
+
+```{r}
+laquinta %>%
+  filter(!(state %in% states$abbreviation))
+```
+
+There are La Quintas in the US, Canada, Colombia, Honduras, and Mexico.
+
+### Exercise 8
+
+```{r}
+laquinta <- laquinta %>%
+  mutate(country = case_when(
+    state %in% state.abb     ~ "United States",
+    state %in% c("ON", "BC") ~ "Canada",
+    state == "ANT"           ~ "Colombia",
+    state == "FM"            ~ "Honduras",
+    state %in% c("AG", "QR", "CH", "NL", "VE", "PU", "SL") ~ "Mexico"
+  ))
+```
+
+
+
+```{r}
+laquinta %>%
+  filter(country == "United States")
+```
+
+### Exercise 9
+
+```{r}
+dennys %>%
+  count(state) %>%
+  inner_join(states, by = c("state" = "abbreviation"))
+```
+
+California has the most Denny's (403). Delaware has the fewest Denny's (1).
+
+```{r}
+laquinta %>%
+  count(state) %>%
+  inner_join(states, by = c("state" = "abbreviation"))
+```
+
+Texas has the most La Quintas (237). Maine has the fewest La Quintas (1).
+
+This data is not particularly suprising; CA and TX are large states so their higher rates of Denny's and La Quinta's makes sense.
+
+### Exercise 10
+
+```{r}
+dennys %>%
+  count(state) %>%
+  inner_join(states, by = c("state" = "abbreviation"))%>%
+  mutate(dennysper1000 = n / area * 1000)%>%
+  arrange(dennysper1000)
+
+```
+DC has the most denny's/1000 sq mile
+
+```{r}
+laquinta %>%
+  count(state) %>%
+  inner_join(states, by = c("state" = "abbreviation"))%>%
+  mutate(laquintaper1000 = n / area * 1000)%>%
+  arrange(laquintaper1000)
+```
+Rhode Island has the most la quinta's between 1000 sq miles.
+
+
+```{r}
+dennys <- dennys %>%
+  mutate(establishment = "Denny's")
+laquinta <- laquinta %>%
+  mutate(establishment = "La Quinta")
+```
+
+```{r}
+dennys_laquinta <- bind_rows(dennys, laquinta)
+```
+
+
+```{r}
+ggplot(dennys_laquinta, mapping = aes(x = longitude,
+                            y = latitude,
+                            color = establishment)) +
+  geom_point()
+```
+
+
+### Exercise 11
+```{r}
+dennys_laquinta %>% 
+filter(state == "NC") %>% 
+  ggplot(dennys_laquinta, mapping = aes(x = longitude,
+                            y = latitude,
+                            color = establishment)) +
+  geom_point(alpha = .6)
+```
+
+
+### Exercise 12
+
+```{r}
+dennys_laquinta %>% 
+filter(state == "TX") %>% 
+  ggplot(dennys_laquinta, mapping = aes(x = longitude,
+                            y = latitude,
+                            color = establishment)) +
+  geom_point(alpha = .6)
+```
+
+
 
