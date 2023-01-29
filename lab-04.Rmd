@@ -158,7 +158,7 @@ filter(state == "NC") %>%
                             color = establishment)) +
   geom_point(alpha = .6)
 ```
-
+There are certainly Denny's and La Quintas next to eachother but its not overwhelming.
 
 ### Exercise 12
 
@@ -170,6 +170,5 @@ filter(state == "TX") %>%
                             color = establishment)) +
   geom_point(alpha = .6)
 ```
-
-
+This one looks like there is almost always a La Quinta near a Denny's. Moreso than NC
 

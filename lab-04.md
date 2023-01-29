@@ -295,7 +295,9 @@ filter(state == "NC") %>%
   geom_point(alpha = .6)
 ```
 
-![](lab-04_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
+![](lab-04_files/figure-gfm/unnamed-chunk-15-1.png)<!-- --> There are
+certainly Denny’s and La Quintas next to eachother but its not
+overwhelming.
 
 ### Exercise 12
 
@@ -308,4 +310,6 @@ filter(state == "TX") %>%
   geom_point(alpha = .6)
 ```
 
-![](lab-04_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
+![](lab-04_files/figure-gfm/unnamed-chunk-16-1.png)<!-- --> This one
+looks like there is almost always a La Quinta near a Denny’s. Moreso
+than NC
