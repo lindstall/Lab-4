@@ -1,11 +1,16 @@
 ---
 title: "Lab 04 - La Quinta is Spanish for next to Denny's, Pt. 1"
 author: "Lindsay Stall"
+<<<<<<< HEAD
 date: "1/25/2023"
+=======
+date: "01/24/2023"
+>>>>>>> 55ab68cc996c7eba193eac957447ed8a7afe1189
 output: github_document
 ---
 
 ### Load packages and data
+
 
 ```{r load-packages, message = FALSE}
 library(tidyverse) 
@@ -18,10 +23,17 @@ states <- read_csv("data/states.csv")
 
 ### Exercise 1
 
+<<<<<<< HEAD
 ```{r}
 nrow(dennys)
 ncol(dennys)
 ```
+=======
+```{r-view-dennys}
+view(dennys)
+```
+
+>>>>>>> 55ab68cc996c7eba193eac957447ed8a7afe1189
 There are 6 columns and 1643 rows. Each row represents a Denny's location. The variables are address, city, state, zip, longitude, and latitude.
 
 ### Exercise 2
@@ -29,6 +41,14 @@ There are 6 columns and 1643 rows. Each row represents a Denny's location. The v
 view(laquinta)
 ```
 
+<<<<<<< HEAD
+=======
+
+```{r-view-laquinta}
+view(laquinta)
+```
+
+>>>>>>> 55ab68cc996c7eba193eac957447ed8a7afe1189
 There are 6 columns and 909 rows. Each row represents a La Quinta location. The variables are address, city, state, zip, longitude, and latitude.
 
 ### Exercise 3
@@ -39,7 +59,11 @@ The Denny's store locator may not be working (not seeing any dots on the map app
 
 ### Exercise 4
 
+<<<<<<< HEAD
 Perhaps one way to filter out data that is not from the United States is exclude any data that does not a the initials of a state (and DC) located in the United States. I'm not familiar with zip code conventions, but perhaps there are specific conventions for zip code in the US that would differentiate them from zip codes from other countries. I'm also not super familiar with longitude and latitude, but perhaps there would be a range of values that would cover the US, and you could exlude any locations with longitude or latitudes outside of said range.
+=======
+Perhpas one way to filter out data that is not from the United States is exclude any data that does not a the initials of a state (and DC) located in the United States. I'm not familiar with zip code conventions, but perhaps there are specific conventions for zip code in the US that would differentiate them from zip codes from other countries. I'm also not super familiar with longitude and latitude, but perhaps there would be a range of values that would cover the US, and you could exlude any locations with longitude or latitudes outside of said range.
+>>>>>>> 55ab68cc996c7eba193eac957447ed8a7afe1189
 
 ### Exercise 5
 

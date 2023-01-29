@@ -1,7 +1,11 @@
 Lab 04 - La Quinta is Spanish for next to Denny’s, Pt. 1
 ================
 Lindsay Stall
+<<<<<<< HEAD
 1/25/2023
+=======
+01/24/2023
+>>>>>>> 55ab68cc996c7eba193eac957447ed8a7afe1189
 
 ### Load packages and data
 
@@ -16,6 +20,7 @@ states <- read_csv("data/states.csv")
 
 ### Exercise 1
 
+<<<<<<< HEAD
 ``` r
 nrow(dennys)
 ```
@@ -28,13 +33,23 @@ ncol(dennys)
 
     ## [1] 6
 
+=======
+``` {r-view-dennys}
+view(dennys)
+```
+
+>>>>>>> 55ab68cc996c7eba193eac957447ed8a7afe1189
 There are 6 columns and 1643 rows. Each row represents a Denny’s
 location. The variables are address, city, state, zip, longitude, and
 latitude.
 
 ### Exercise 2
 
+<<<<<<< HEAD
 ``` r
+=======
+``` {r-view-laquinta}
+>>>>>>> 55ab68cc996c7eba193eac957447ed8a7afe1189
 view(laquinta)
 ```
 
@@ -53,7 +68,11 @@ site, there are no results. Perhaps they only have location in the US?
 
 ### Exercise 4
 
+<<<<<<< HEAD
 Perhaps one way to filter out data that is not from the United States is
+=======
+Perhpas one way to filter out data that is not from the United States is
+>>>>>>> 55ab68cc996c7eba193eac957447ed8a7afe1189
 exclude any data that does not a the initials of a state (and DC)
 located in the United States. I’m not familiar with zip code
 conventions, but perhaps there are specific conventions for zip code in
